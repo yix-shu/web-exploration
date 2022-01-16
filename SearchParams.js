@@ -1,5 +1,6 @@
 import {useState} from "react";
 import Pet from "./Pet";
+import Results from "./Results";
 import useBreedList from "./useBreedList";
 
 const SearchParams = () => {
@@ -79,9 +80,7 @@ const SearchParams = () => {
           </label>
           <button>Submit</button>
         </form>
-        {
-
-        }
+        <Results pets = {pets} />
       </div> 
     );
   };
