@@ -2,8 +2,10 @@ import {useState} from "react";
 import Pet from "./Pet";
 import Results from "./Results";
 import useBreedList from "./useBreedList";
+import ThemeContext from "./ThemeContext";
 
 const SearchParams = () => {
+    const [theme] = useContext(ThemeContext);
     const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
     
@@ -78,7 +80,7 @@ const SearchParams = () => {
                 }
               </select>
           </label>
-          <button>Submit</button>
+          <button style = {{backgroundcolor: theme}}>Submit</button>
         </form>
         <Results pets = {pets} />
       </div> 

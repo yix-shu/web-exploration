@@ -19,26 +19,30 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom/cjs/reac
 import ReactDOM from "react-dom";
 import Pet from "./Pet";
 import SearchParams from "./SearchParams";
-import {StrictMode} from "react"; //dev tool, throws more errors and warnings for dev
+import {StrictMode, useState} from "react"; //dev tool, throws more errors and warnings for dev
+import ThemeContext from "./ThemeContext";
 
 const App = () => {
+    const theme = useState("black");
     StrictMode
     return (
-        <div>
-            <Router>
-                <h1>
-                    <Link to = {''}></Link> //links back to homepage
-                </h1>
-                <Switch> 
-                    <Route path = "/details/:id">
-                        <Details/>
-                    </Route>
-                    <Route path = "/">
-                        <SearchParams/>
-                    </Route>
-                </Switch>
-            </Router>
-        </div>
+        <ThemeContext.Provider.value = {theme}>
+            <div>
+                <Router>
+                    <h1>
+                        <Link to = {''}></Link> //links back to homepage
+                    </h1>
+                    <Switch> 
+                        <Route path = "/details/:id">
+                            <Details/>
+                        </Route>
+                        <Route path = "/">
+                            <SearchParams/>
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
+        </ThemeContext.Provider.value>
     )
     //return React.createElement(Pet, {name: "Meow", animal: "Cat", breed: "Siamese"});
 }
