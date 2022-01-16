@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 
 const localCache = {};
 export default function useBreedList(animal) {
+    console.log(localCache); 
     const [breedList, setBreedList] = useState([]);
     const [status, setStatus] = useState("unloaded");
     useEffect(()=>{
@@ -25,7 +26,7 @@ export default function useBreedList(animal) {
             localCache[animal] = json.breeds || [];
             setBreedList(localCache[animal]);
             setStatus("loaded");
-            
+
         }
     }, [animal]);
     return [breedList, status];
