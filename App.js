@@ -14,6 +14,7 @@ babel
 JSX
 ```
 import React from "react";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom/cjs/react-router-dom.min";
 import ReactDOM from "react-dom";
 import Pet from "./Pet";
 import SearchParams from "./SearchParams";
@@ -23,8 +24,17 @@ const App = () => {
     StrictMode
     return (
         <div>
-            <h1>Adopt me!</h1>
-            <SearchParams/>
+            <Router>
+                <h1>Adopt me!</h1>
+                <Switch>
+                    <Route path = "/details/:id">
+                        <Details/>
+                    </Route>
+                    <Route path = "/">
+                        <SearchParams/>
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     )
     //return React.createElement(Pet, {name: "Meow", animal: "Cat", breed: "Siamese"});
