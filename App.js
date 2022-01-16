@@ -26,7 +26,7 @@ const App = () => {
         <div>
             <Router>
                 <h1>Adopt me!</h1>
-                <Switch>
+                <Switch> 
                     <Route path = "/details/:id">
                         <Details/>
                     </Route>
