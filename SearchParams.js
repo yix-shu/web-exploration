@@ -18,7 +18,7 @@ const SearchParams = () => {
 
     useEffect(() => {
         requestPets();
-    }, [])
+    }, [pets])
 
     async function requestPets(){
         const res = await fetch(
