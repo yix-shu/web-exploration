@@ -1,5 +1,6 @@
 import {useState} from "react";
 import Pet from "./Pet";
+import useBreedList from "./useBreedList";
 
 const SearchParams = () => {
     const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -12,7 +13,7 @@ const SearchParams = () => {
     console.log(location) //checks to see if changed location is registered
     const [animal, updateAnimal] = useState("");
     const [breed, updateBreed] = useState("");
-    const breeds = [];
+    const [breeds] = useBreedList(animal); //updates breeds list based on animal when animal changes
     const [pets, setPets] = useState([]);
 
 

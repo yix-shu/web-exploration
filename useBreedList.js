@@ -12,6 +12,7 @@ export default function useBreedList(animal) {
             setBreedList(localCache[anima]);
         } else{
             //functionality
+            requestBreedList();
         }
         async function requestBreedList(){
             setBreedList([]);
@@ -21,6 +22,11 @@ export default function useBreedList(animal) {
                 `http://pet-v2.dev-apis.com/breeds?animal=${animal}` //searches for breeds based on newly updated animal
             );
             const json = await res.json(); //converts into json value
+            localCache[animal] = json.breeds || [];
+            setBreedList(localCache[animal]);
+            setStatus("loaded");
+            
         }
-    }, [animal])
+    }, [animal]);
+    return [breedList, status];
 }
