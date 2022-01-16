@@ -17,8 +17,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Pet from "./Pet";
 import SearchParams from "./SearchParams";
+import {StrictMode} from "react"; //dev tool, throws more errors and warnings for dev
 
 const App = () => {
+    StrictMode
     return (
         <div>
             <h1>Adopt me!</h1>
@@ -27,5 +29,5 @@ const App = () => {
     )
     //return React.createElement(Pet, {name: "Meow", animal: "Cat", breed: "Siamese"});
 }
-render(<App/>, document.getElementById("root"));
+render(<StrictMode><App/></StrictMode>, document.getElementById("root"));
 //ReactDOM.render(React.createElement(App), document.getElementById("root"));
