@@ -14,6 +14,7 @@ babel
 JSX
 ```
 import React from "react";
+import {render} from "react-dom";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom/cjs/react-router-dom.min";
 import ReactDOM from "react-dom";
 import Pet from "./Pet";
@@ -25,7 +26,9 @@ const App = () => {
     return (
         <div>
             <Router>
-                <h1>Adopt me!</h1>
+                <h1>
+                    <Link to = {''}></Link> //links back to homepage
+                </h1>
                 <Switch> 
                     <Route path = "/details/:id">
                         <Details/>
